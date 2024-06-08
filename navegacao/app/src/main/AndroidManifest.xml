@@ -13,10 +13,14 @@
         android:theme="@style/Theme.Navegacao"
         tools:targetApi="31">
         <activity
+            android:name=".DetalhesActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Navegacao">
+            android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
