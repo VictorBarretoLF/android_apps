@@ -2,6 +2,8 @@ package com.victor.navegacao
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.ActionMode
 import android.widget.Button
 import androidx.activity.ComponentActivity
 
@@ -17,5 +19,30 @@ class MainActivity : ComponentActivity() {
             val intent = Intent(this, DetalhesActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i("ciclo vida", "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i("ciclo vida", "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i("ciclo vida", "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i("ciclo vida", "onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("ciclo vida", "onDestroy")
     }
 }
