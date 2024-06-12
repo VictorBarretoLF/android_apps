@@ -1,5 +1,6 @@
 package com.victor.navegacao
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,11 +19,19 @@ class DetalhesActivity : AppCompatActivity() {
 
         val bundle = intent.extras // todos os parametros passados
         if(bundle != null) {
-            val filme = bundle.getString("filme")
-            val classificacao = bundle.getInt("classificacao")
-            val avaliacoes = bundle.getDouble("avaliacoes")
-            val resultado = "filme: $filme - class. $classificacao aval. $avaliacoes"
-            textFilme.text = resultado
+//            val filme = bundle.getString("filme")
+//            val classificacao = bundle.getInt("classificacao")
+//            val avaliacoes = bundle.getDouble("avaliacoes")
+//            val resultado = "filme: $filme - class. $classificacao aval. $avaliacoes"
+
+//            val filme =
+//                if(Build.VERSION.SDK_INT >= 33) bundle.getSerializable("filme", Filme::class.java)
+//                else bundle.getSerializable("filme") as Filme
+            val filme =
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) bundle.getParcelable("filme", Filme::class.java)
+                else bundle.getParcelable("filme")
+
+            textFilme.text = "${filme?.nome} - ${filme?.distribuidor}"
         }
 
         buttonVoltar.setOnClickListener {

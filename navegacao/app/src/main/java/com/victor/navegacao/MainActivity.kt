@@ -20,9 +20,19 @@ class MainActivity : ComponentActivity() {
             val intent = Intent(this, DetalhesActivity::class.java)
 
             // Passar parametros para nova tela
-            intent.putExtra("filme", "Filme Teste")
-            intent.putExtra("classificacao", 5)
-            intent.putExtra("avaliacoes", 9.2)
+//            intent.putExtra("filme", "Filme Teste")
+//            intent.putExtra("classificacao", 5)
+//            intent.putExtra("avaliacoes", 9.2)
+
+            val filme = Filme(
+                "Nome Filme",
+                "Descrição do Filme",
+                3.0,
+                "Direto do filme",
+                "Distribuidora do filme"
+                )
+
+            intent.putExtra("filme", filme)
 
             // iniciar nova tela
             startActivity(intent)
